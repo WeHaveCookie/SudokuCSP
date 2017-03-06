@@ -184,7 +184,7 @@ void printResult(State* states[sudokuSize][sudokuSize]){
 	{
 		for (int j = 0; j < sudokuSize; j++)
 		{
-			std::cout << states[i][j]->assignedValue();
+			std::cout << states[i][j]->assignedValue() << " ";
 		}
 		std::cout << std::endl;
 	}
@@ -299,5 +299,7 @@ int main() {
 
 	solveCSP(sudoku);
 	std::cout << backtrack << " backtracks had to be done" << std::endl;
+	std::cout << "press Enter to exit" << std::endl;
+	getline(std::cin, buffer);
 	return 0;
 }

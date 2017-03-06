@@ -60,7 +60,10 @@ void State::removeFromDomain(int v)
 		return;
 	}
 	
-	m_domain[v] = (!isFinal());
+	if(!isFinal())
+	{
+		m_domain[v] = true;
+	}
 
 	m_domainSize--;
 
@@ -75,7 +78,10 @@ void State::removeFromDomain(int v)
 		}
 	}
 
-	m_dirty = (m_domainSize <= 0);
+	if (m_domainSize <= 0)
+	{
+		m_dirty = true;
+	}
 }
 
 void State::consolidate()
